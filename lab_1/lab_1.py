@@ -136,7 +136,7 @@ print(
 pair = np.array([1, 0, 0, 0, 0, 0, 0, 0]), np.array([1, 0, 0, 0, 0, 0, 0, 0])
 p = calculate_abghn(*pair)
 print(
-    'hamming same for kulczynski',
-    similarity_kulczynski(*p),
+    'hamming same for IOU',
+    iou(*p),
     hamming_distance(*pair),
 )
