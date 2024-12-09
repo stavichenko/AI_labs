@@ -38,6 +38,8 @@ def iou(a, b, g, h, n):
 
 
 def calculate_abghn(x1, x2):
+    x1 = x1.astype(bool)
+    x2 = x2.astype(bool)
     a = np.sum(x1 & x2)
     b = np.sum(~x1 & ~x2)
     g = np.sum(~x1 & x2)
@@ -133,10 +135,10 @@ print(
 )
 
 # same as other metric
-pair = np.array([1, 0, 0, 0, 0, 0, 0, 0]), np.array([1, 0, 0, 0, 0, 0, 0, 0])
+pair = np.array([1, 0, 0, 0, 0, 0, 0, 0]), np.array([1, 1, 0, 0, 0, 0, 0, 0])
 p = calculate_abghn(*pair)
 print(
     'hamming same for IOU',
-    iou(*p),
+    similarity_kulczynski(*p),
     hamming_distance(*pair),
 )
